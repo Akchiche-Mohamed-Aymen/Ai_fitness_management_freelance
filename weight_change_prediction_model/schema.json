@@ -1,0 +1,8 @@
+{
+  "weight_change_prediction_model": {
+    "delta_weight": "number (signed, e.g. +2.5 / -1.25 / 0)",
+    "unit": "string (enum: kg | lb)",
+    "confidence": "number (0.0 to 1.0)",
+    "explanation": "string (LLM-generated, evidence-grounded)"
+  }
+}
