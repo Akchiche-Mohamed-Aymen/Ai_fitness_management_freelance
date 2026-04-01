@@ -1,7 +1,6 @@
 from pandas import read_csv
 
-f1, f2 = "workouts.csv", "weightlifting_workouts.csv"
-df1 = read_csv(f1)
+f2 = "weightlifting_workouts.csv"
 df2 = read_csv(f2)
 
 df2 = df2[df2["Exercise Name"] != "Lateral Raise (Dumbbell)"]
@@ -31,11 +30,8 @@ df2["success"] = (
     is_first | load_changed | (same_weight & reps_ok)
 ).astype(int)
 
-df1.rename(columns={"weight_kg": "weight"}, inplace=True)
-df1 = df1[["weight", "reps", "rpe"]]
 df2 = df2[["weight", "reps", "sets", "success"]]
 
-df1.to_csv("workouts_cleaned.csv", index=False)
 df2.to_csv("weightlifting_cleaned.csv", index=False)
 
-# py prepare_workout_csvs.py
+# py prepare_workout_csv.py
