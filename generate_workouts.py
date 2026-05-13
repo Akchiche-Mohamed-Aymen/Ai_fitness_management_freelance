@@ -36,6 +36,7 @@ def useAI(input_data):
         5. **Duration constraint** — Fit all exercises within the specified `duration_time`. Account for warm-up (~5 min) and cool-down (~3 min) implicitly within the total.
         6 - Recommendations must be short , clear and actionable. Avoid generic advice.
         ## STRICT RULES
+        - Use only Arabic language in the output
         - Output ONLY the JSON object. Any text outside the JSON is a critical failure.
         - Every field is required. No nulls, no omissions.
         - `estimated_duration` must not exceed the client's `duration_time`.

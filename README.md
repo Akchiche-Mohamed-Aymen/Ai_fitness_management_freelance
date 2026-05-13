@@ -79,6 +79,10 @@ fitness-coaching-assistant/
 ├── requirements.txt
 └── README.md
 ```
+### 4. Starting Running The APP
+```bash
+python -m uvicorn main:app --reload
+```
 ## 🛣️ Roadmap
 
 - **Phase 1** ✅ — LLM workout plan generation with strict JSON schema
