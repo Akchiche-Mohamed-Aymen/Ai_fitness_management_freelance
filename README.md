@@ -2,20 +2,7 @@
 
 An intelligent, LLM-powered fitness coaching system that generates personalized workout plans based on a client's physical profile and goals.
 
----
 
-## 📌 Project Status
-
-| Phase | Description | Status |
-|-------|-------------|--------|
-| **Phase 1** | LLM-based workout plan generation | ✅ Active |
-| Phase 2 | Prediction models + LLM explanations | 🔜 Planned |
-| Phase 3 | Unified API layer | 🔜 Planned |
-| Phase 4 | Full coaching system integration | 🔜 Planned |
-
-> **Note:** This repository currently covers Phase 1 only. Phases 2–4 are architectural targets, not yet implemented.
-
----
 
 ## 🧠 How It Works
 

@@ -47,10 +47,8 @@ def useAI(input_data):
         '''
             user_prompt = "\n".join([f"{key}: {value}" for key, value in input_data.items()])
             response = connect_with_ai(system_prompt, user_prompt, Workout)
-            response['workout_id'] = generate_id()
-            for i in range(len(response['exercises'])):
-                response['exercises'][i]['exercise_id'] = generate_id()
-            return response
+            return {'workout_id' : generate_id(), **response}
+            
     except Exception as e:
         print(f"Error in useAI: {e}")
         return { "error": "An error occurred while generating the workout plan."}
