@@ -10,6 +10,7 @@ class Input_Schema(BaseModel):
     age: int = Field(..., gt=0, description="Client's age in years")
 class Exercise(BaseModel):
     name: str = Field(..., description="Exercise name")
+    explanation: str = Field(..., description="Brief explanation of the exercise")
     sets: int = Field(..., gt=0, description="Number of sets")
     reps: int = Field(..., gt=0, description="Number of repetitions")
     rest: int = Field(..., ge=0, description="Rest time in seconds")
