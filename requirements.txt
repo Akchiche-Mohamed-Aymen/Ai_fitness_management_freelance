@@ -4,4 +4,4 @@ langchain_core
 pydantic
 uuid
 typing
-
+uvicorn
