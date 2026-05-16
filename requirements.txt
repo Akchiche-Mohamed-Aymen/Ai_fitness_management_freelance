@@ -1,6 +1,7 @@
 python-dotenv
 fastapi
 langchain_core
+langchain_google_genai
 pydantic
 uuid
 typing
