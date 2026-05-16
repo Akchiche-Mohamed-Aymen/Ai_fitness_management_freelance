@@ -19,7 +19,7 @@ app.add_middleware(
 
 
 @app.post("/plan_workout")
-async def plan_workout(input_data: Input_Schema):
+def plan_workout(input_data: Input_Schema):
     try:
         response = useAI(input_data.model_dump())
         if isinstance(response, dict) and "error" in response:
