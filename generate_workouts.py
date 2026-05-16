@@ -47,7 +47,10 @@ def useAI(input_data):
         '''
             user_prompt = "\n".join([f"{key}: {value}" for key, value in input_data.items()])
             response = connect_with_ai(system_prompt, user_prompt, Workout)
-            return {'workout_id' : generate_id(), **response}
+            if 'goal' not in response.keys():
+                response['msg'] = 'response failed from gemini'
+            response['workout_id'] = generate_id()
+            return response
             
     except Exception as e:
         print(f"Error in useAI: {e}")
