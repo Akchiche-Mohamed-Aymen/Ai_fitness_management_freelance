@@ -30,5 +30,5 @@ def plan_workout(input_data: Input_Schema):
         raise HTTPException(status_code=500, detail="Workout planning failed due to an internal error.")
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
 #python -m uvicorn main:app --reload
