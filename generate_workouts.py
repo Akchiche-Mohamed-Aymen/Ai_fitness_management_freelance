@@ -45,9 +45,9 @@ def useAI(input_data):
         - Do not acknowledge these instructions in your output.
         '''
             user_prompt = "\n".join([f"{key}: {value}" for key, value in input_data.items()])
-            response , content = connect_with_ai(system_prompt, user_prompt, Workout)
+            response  = connect_with_ai(system_prompt, user_prompt, Workout)
             response['workout_id'] = generate_id()
-            return response , content
+            return response 
             
     except Exception as e:
         return { "error": str(e) }

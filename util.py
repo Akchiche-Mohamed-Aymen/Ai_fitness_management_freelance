@@ -2,7 +2,7 @@ from ai import chat
 from langchain_core.messages import HumanMessage , SystemMessage
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import PromptTemplate
-
+import json
 def connect_with_ai(system_prompt: str , user_prompt: str , response_class):
     parser = JsonOutputParser(pydantic_object=response_class)
     prompt_template = PromptTemplate(
@@ -16,4 +16,4 @@ def connect_with_ai(system_prompt: str , user_prompt: str , response_class):
      HumanMessage(content=prompt_template.format(user_prompt= user_prompt))
     ]
     response = chat.invoke(messages)
-    return parser.parse(response.content) , response.content
+    return json.loads(response.content) 
