@@ -16,4 +16,4 @@ def connect_with_ai(system_prompt: str , user_prompt: str , response_class):
      HumanMessage(content=prompt_template.format(user_prompt= user_prompt))
     ]
     response = chat.invoke(messages)
-    return parser.parse(response.content)
+    return parser.parse(response.content) , response.content

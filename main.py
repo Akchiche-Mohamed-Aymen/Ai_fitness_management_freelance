@@ -21,10 +21,10 @@ app.add_middleware(
 @app.post("/plan_workout")
 def plan_workout(input_data: Input_Schema):
     try:
-        response = useAI(input_data.model_dump())
+        response , content = useAI(input_data.model_dump())
         if isinstance(response, dict) and "error" in response:
             raise HTTPException(status_code=422, detail=response["error"])
-        return JSONResponse(status_code=200, content=response)
+        return JSONResponse(status_code=200, content={"response": response, "content": content})
     except Exception as e:
         print(f"[ERROR] Workout planning failed: {e}")
         raise HTTPException(status_code=500, detail="Workout planning failed due to an internal error.")
