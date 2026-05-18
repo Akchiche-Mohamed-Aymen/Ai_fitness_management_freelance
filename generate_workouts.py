@@ -47,11 +47,19 @@ def useAI(input_data):
         '''
             user_prompt = "\n".join([f"{key}: {value}" for key, value in input_data.items()])
             response = connect_with_ai(system_prompt, user_prompt, Workout)
-            if 'goal' not in response.keys():
-                response['msg'] = 'response failed from gemini'
             response['workout_id'] = generate_id()
             return response
             
     except Exception as e:
         print(f"Error in useAI: {e}")
         return { "error": "An error occurred while generating the workout plan."}
+'''
+{
+  "goal": "أريد خسارة الوزن",
+  "current_level": "مبتدئ",
+  "duration_time": 45,
+  "height": 180,
+  "weight": 75,
+  "age": 20
+}
+'''
