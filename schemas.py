@@ -5,7 +5,6 @@ class Input_Schema(BaseModel):
     goal: str = Field(..., description="Client's fitness goal (e.g., fat loss, muscle gain, strength, endurance)")
     current_level: str = Field(..., description="Client's current fitness level (e.g., beginner, intermediate, advanced)")
     duration_time: int = Field(..., gt=0, description="Total workout duration in minutes")
-    height: float = Field(..., gt=0, description="Client's height in centimeters")
     weight: float = Field(..., gt=0, description="Client's weight in kilograms")
     age: int = Field(..., gt=0, description="Client's age in years")
 class Exercise(BaseModel):

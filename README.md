@@ -33,10 +33,16 @@ User Profile (JSON)
 - Python 3.9+
 
 ### 2. Installation
-
+##### Clone the repo
 ```bash
-git https://github.com/Akchiche-Mohamed-Aymen/Ai_fitness_management_freelance.git
+git clone https://github.com/Akchiche-Mohamed-Aymen/Ai_fitness_management_freelance.git
+```
+#### Go to folder
+```bash
 cd Ai_fitness_management_freelance
+```
+##### Install libraries
+```bash
 pip install -r requirements.txt
 ```
 

@@ -19,7 +19,6 @@ def useAI(input_data):
         - goal  : {input_data['goal']}
         - current_level : {input_data['current_level']} 
         - duration_time : {input_data['duration_time']} 
-        - height : {input_data['height']}
         - weight : {input_data['weight']} 
         - age : {input_data['age']} 
 
