@@ -44,10 +44,10 @@ pip install -r requirements.txt
  
 ### 3. Set Your API Key
  
-Create a `key.py` file in the project root:
+Create a `.env` file in the project root:
  
-```python
-GEMINI_KEY = "your-key-here"
+```bash
+GEMINI_KEY = your-key-here
 ```
  
 > 🔑 **Get your key:** Go to [Google AI Studio](https://aistudio.google.com/app/apikey) → **Create API key** → copy and paste it above.
