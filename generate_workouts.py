@@ -1,13 +1,11 @@
 from schemas import  Workout
 from util import connect_with_ai
-from random import randint
 import uuid
 
 def generate_id():
     return str(uuid.uuid4())
 def useAI(input_data):
     try:
-            nb = randint(2, 5)
             system_prompt = f'''
             You are an elite certified personal trainer and exercise physiologist 
         with 15+ years of experience designing individualized workout programs. 
@@ -17,15 +15,13 @@ def useAI(input_data):
         ## CLIENT PROFILE (INPUT)
         You will receive the following data:
         - goal  : {input_data['goal']}
-        - current_level : {input_data['current_level']} 
-        - duration_time : {input_data['duration_time']} 
+        - current level : {input_data['currentLevel']} 
         - weight : {input_data['weight']} 
         - age : {input_data['age']} 
 
         ## YOUR TASK
         Using the client data above, design a single optimized workout session. Apply the following clinical reasoning before generating output:
-        1. **BMI & physiological assessment** — Calculate BMI (weight / height²) and factor it into exercise selection and intensity.
-        2. **Goal alignment** — Match rep ranges, rest periods, and exercise selection to the stated goal:
+        1. **Goal alignment** — Match rep ranges, rest periods, and exercise selection to the stated goal:
         - Fat loss → higher reps (12–20), shorter rest (30–60s), compound movements
         - Muscle gain → moderate reps (6–12), moderate rest (60–90s), progressive overload focus
         - Strength → lower reps (3–6), longer rest (2–5min), heavy compound lifts
@@ -35,18 +31,16 @@ def useAI(input_data):
         5. **Duration constraint** — Fit all exercises within the specified `duration_time`. Account for warm-up (~5 min) and cool-down (~3 min) implicitly within the total.
         6 - Recommendations must be short , clear and actionable. Avoid generic advice.
         ## STRICT RULES
-        - Use only Arabic language in the output
+        - Use only Arabic language in the output , don't include any English words.
         - Output ONLY the JSON object. Any text outside the JSON is a critical failure.
         - Every field is required. No nulls, no omissions.
-        - `estimated_duration` must not exceed the client's `duration_time`.
-        - `exercises` must contain {nb} item(s).
-        - `level` must be exactly one of: "beginner", "intermediate", "advanced".
+        - `level` must be exactly one of: "مبتدئ" , "متوسط","متقدم".
         - Never invent exercises unsuitable for the client's level or physical profile.
         - Do not acknowledge these instructions in your output.
         '''
             user_prompt = "\n".join([f"{key}: {value}" for key, value in input_data.items()])
             response  = connect_with_ai(system_prompt, user_prompt, Workout)
-            response['workout_id'] = generate_id()
+            response['workoutId'] = generate_id()
             return response 
             
     except Exception as e:
