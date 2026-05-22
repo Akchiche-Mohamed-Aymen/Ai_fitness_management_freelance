@@ -1,7 +1,11 @@
 from schemas import  Workout
 from util import connect_with_ai
 import uuid
-
+def remove_english(sentence):
+    idx = sentence.find('(')
+    if idx != -1:
+        return sentence[:idx]
+    return sentence
 def generate_id():
     return str(uuid.uuid4())
 def useAI(input_data):
@@ -30,6 +34,10 @@ def useAI(input_data):
         4. **Age consideration** — For clients 50+, prioritize joint-friendly movements, longer warm-up recommendations, and appropriate rest intervals.
         5. **Duration constraint** — Fit all exercises within the specified `duration_time`. Account for warm-up (~5 min) and cool-down (~3 min) implicitly within the total.
         6 - Recommendations must be short , clear and actionable. Avoid generic advice.
+        7 - Use only evidence-based exercises with proper form cues. Avoid any exercise that may pose a risk given the client's profile.
+        8 - Ensure the workout is balanced, targeting all major muscle groups and energy systems as appropriate for the goal.
+        9 - Prioritize compound movements for efficiency, especially for fat loss and strength goals. Include isolation exercises as needed for muscle gain and endurance.
+        10 - Explanations must describe and clear  more the exercise not the goal of exercise , make them short and understandable.
         ## STRICT RULES
         - Use only Arabic language in the output , don't include any English words.
         - Output ONLY the JSON object. Any text outside the JSON is a critical failure.
@@ -39,7 +47,7 @@ def useAI(input_data):
         - Do not acknowledge these instructions in your output.
         '''
             user_prompt = "\n".join([f"{key}: {value}" for key, value in input_data.items()])
-            response  = connect_with_ai(system_prompt, user_prompt, Workout)
+            response  = connect_with_ai(system_prompt, user_prompt, Workout)            
             response['workoutId'] = generate_id()
             return response 
             

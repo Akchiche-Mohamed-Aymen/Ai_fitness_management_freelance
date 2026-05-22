@@ -16,7 +16,14 @@ class Exercise(BaseModel):
 
 class Workout(BaseModel):
     title: str = Field(..., description="Workout title")
-    level: Literal["مبتدئ" , "متوسط","متقدم"]
+    level: Literal[
+      "مبتدئ",
+      "نشيط قليلاً",
+      "رياضي نوعاً ما",
+      "متقدم",
+      "خبير",
+      "محترف",
+    ]
     goal: str = Field(..., description="Workout goal")
     estimatedDuration: int = Field(
         ..., gt=0, description="Estimated duration in minutes"
